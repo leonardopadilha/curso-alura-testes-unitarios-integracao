@@ -1,0 +1,14 @@
+npm init -y
+npm install --save-dev eslint@8.16.0 --save-exact
+npx eslint --init
+
+para executar o arquivo index: npx eslint .\index.js
+
+
+correção do erro: Expected linebreaks to be 'LF' but found 'CRLF'
+
+Arquivo .eslintrc.json
+
+"rules": {
+        "linebreak-style": 0
+    }
