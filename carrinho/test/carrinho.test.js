@@ -31,4 +31,10 @@ describe('Testes do carrinho', () => {
 
     expect(carrinho).toHaveProperty('total');
   });
+
+  it('Deve ter a propriedade "subtotal" na inicialização', () => {
+    const carrinho = new Carrinho();
+
+    expect(carrinho).toHaveProperty('subtotal');
+  });
 });

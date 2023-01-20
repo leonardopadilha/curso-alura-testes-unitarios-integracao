@@ -4,8 +4,12 @@ npx eslint --init
 npm install --save-exact jest@28.1.0 --save-dev
 
 para executar o arquivo index: npx eslint .\index.js
-
 executar com jest: npm run test / npm test / npm t
+
+https://jestjs.io/pt-BR/docs/getting-started
+https://jestjs.io/pt-BR/docs/expect
+https://jestjs.io/pt-BR/docs/api
+https://jestjs.io/pt-BR/ecmascript-modules
 
 
 correção do erro: Expected linebreaks to be 'LF' but found 'CRLF'
