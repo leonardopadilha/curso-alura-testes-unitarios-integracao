@@ -37,4 +37,19 @@ describe('Testes do carrinho', () => {
 
     expect(carrinho).toHaveProperty('subtotal');
   });
+
+  it('Deve ter a popriedade "frete" na inicialização', () => {
+    const carrinho = new Carrinho();
+
+    expect(carrinho).toHaveProperty('frete');
+    expect(carrinho.frete).toBeNull();
+  });
+
+  it('validar que a o popriedade "itens" é um array vazio na inicialização', () => {
+    const carrinho = new Carrinho();
+
+    console.log(carrinho)
+
+    expect(typeof carrinho.itens).toBe('object');
+  });
 });
