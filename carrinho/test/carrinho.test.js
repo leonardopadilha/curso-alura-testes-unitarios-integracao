@@ -56,5 +56,9 @@ describe('Testes do carrinho', () => {
     }
 
     expect(englobaErroCarrinho).toThrowError('Carrinho de compras vazio');
+
+    /* expect( () => { //Arrow function
+        finalizaCompra();
+    }).toThrowError(); */
   });
 });
