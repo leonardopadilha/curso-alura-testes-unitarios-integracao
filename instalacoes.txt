@@ -10,6 +10,7 @@ https://jestjs.io/pt-BR/docs/getting-started
 https://jestjs.io/pt-BR/docs/expect
 https://jestjs.io/pt-BR/docs/api
 https://jestjs.io/pt-BR/ecmascript-modules
+https://jestjs.io/docs/using-matchers
 
 
 correção do erro: Expected linebreaks to be 'LF' but found 'CRLF'

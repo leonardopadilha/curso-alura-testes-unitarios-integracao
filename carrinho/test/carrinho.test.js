@@ -16,8 +16,6 @@ describe('Testes do carrinho', () => {
     carrinho.adiciona(item);
     carrinho.adiciona(item2);
 
-    console.log(carrinho);
-
     expect(typeof carrinho).toBe('object');
     expect(carrinho.itens[0]).toBe(item);
     expect(carrinho.itens[1]).toBe(item2);
@@ -48,8 +46,15 @@ describe('Testes do carrinho', () => {
   it('validar que a o popriedade "itens" é um array vazio na inicialização', () => {
     const carrinho = new Carrinho();
 
-    console.log(carrinho)
-
     expect(typeof carrinho.itens).toBe('object');
+  });
+
+  it('Deve lançar erro ao finalizar compra com carrinho vazio', () => {
+    function englobaErroCarrinho() {
+      const carrinho = new Carrinho();
+      carrinho.finalizaCompra();
+    }
+
+    expect(englobaErroCarrinho).toThrowError('Carrinho de compras vazio');
   });
 });
