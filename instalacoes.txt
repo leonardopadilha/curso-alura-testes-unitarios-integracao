@@ -3,6 +3,8 @@ npm install --save-dev eslint@8.16.0 --save-exact
 npx eslint --init
 npm install --save-exact jest@28.1.0 --save-dev
 
+npm install --save-dev jest@28.1.2 @jest/globals@28.1.2 --save-exact
+
 para executar o arquivo index: npx eslint .\index.js
 executar com jest: npm run test / npm test / npm t
 
