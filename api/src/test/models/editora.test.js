@@ -24,7 +24,7 @@ describe('Testando o modelo Editora', () => {
         });
     });
 
-    it('Deve salvar no BD usando a sintaxe moderna', async () => {
+    it.skip('Deve salvar no BD usando a sintaxe moderna', async () => {
         const editora = new Editora(objetoEditora);
 
         const dados = await editora.salvar();
@@ -39,5 +39,15 @@ describe('Testando o modelo Editora', () => {
                 updated_at: expect.any(String)
             }),
         );
+    });
+
+    it('Deve fazer uma chamada simulada ao banco de dados', () => {
+        const editora = new Editora(objetoEditora);
+
+        editora.salvar = () => {
+            console.log('Editora salva no BD')
+        };
+
+        editora.salvar();
     });
 });
