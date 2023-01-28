@@ -39,3 +39,11 @@ describe('POST em /editoras', () => {
         idResposta = resposta.body.content.id
     });
 });
+
+describe('DELETE em /editoras', () => {
+    it('Deletar o recurso adicionado', async () => {
+        await request(app)
+            .delete(`/editoras/${idResposta}`)
+            .expect(200);
+    });
+});
