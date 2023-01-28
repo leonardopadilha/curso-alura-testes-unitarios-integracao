@@ -40,10 +40,18 @@ describe('POST em /editoras', () => {
     });
 });
 
-describe('DELETE em /editoras', () => {
+describe('DELETE em /editoras/id', () => {
     it('Deletar o recurso adicionado', async () => {
         await request(app)
             .delete(`/editoras/${idResposta}`)
             .expect(200);
+    });
+
+    describe('GET em editoras/id', () => {
+        it('Deve retornar recurso selecionado', async () => {
+            await request(app)
+                .get(`/editoras/${idResposta}`)
+                .expect(200);
+        });
     });
 });
