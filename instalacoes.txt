@@ -6,6 +6,7 @@ npm install --save-exact jest@28.1.0 --save-dev
 npm install --save-dev jest@28.1.2 @jest/globals@28.1.2 --save-exact
 
 npm i @jest/globals
+npm install supertest@6.2.4 --save-exact --save-dev
 
 para executar o arquivo index: npx eslint .\index.js
 executar com jest: npm run test / npm test / npm t
