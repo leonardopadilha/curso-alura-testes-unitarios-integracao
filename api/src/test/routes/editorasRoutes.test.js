@@ -23,3 +23,19 @@ describe('GET em /editoras', () => {
         expect(resposta.body[0].email).toEqual('e@e.com');
     });
 });
+
+let idResposta;
+describe('POST em /editoras', () => {
+    it('Deve adicionar uma nova editora', async () => {
+        let resposta = await request(app)
+            .post('/editoras')
+            .send({
+                nome: 'CDC',
+                cidade: 'Sao Paulo',
+                email: 's@s.com'
+            })
+        .expect(201);
+
+        idResposta = resposta.body.content.id
+    });
+});
