@@ -55,6 +55,8 @@ describe('Testando o modelo Editora', () => {
 
         const retorno = editora.salvar();
 
+        console.log("irrraaaaa" + retorno);
+
         expect(retorno).toEqual(
             expect.objectContaining({
                 id: expect.any(Number),
