@@ -17,5 +17,8 @@
   "type": "module",
   "devDependencies": {
     "jest": "^28.1.0"
+  },
+  "dependencies": {
+    "@jest/globals": "^29.4.1"
   }
 }
