@@ -18,6 +18,7 @@ https://jestjs.io/pt-BR/ecmascript-modules
 https://jestjs.io/docs/using-matchers
 https://jestjs.io/pt-BR/docs/setup-teardown
 https://jestjs.io/pt-BR/docs/jest-object
+https://jestjs.io/pt-BR/docs/jest-object#mock-functions
 
 
 correção do erro: Expected linebreaks to be 'LF' but found 'CRLF'
