@@ -67,7 +67,7 @@ describe('PUT em editoras/id', () => {
     it.each([
         ['cidade ', { cidade : 'SP'}],
         ['email ', { email : 'cdc@cdc.com.br'}],
-    ]) ('Deve alterar campo %s', async (chave, params) => {
+    ]) ('Deve alterar campos %s', async (chave, params) => {
         const requisicao = { request };
         const spy = jest.spyOn(requisicao, 'request');
 

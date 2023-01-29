@@ -19,7 +19,7 @@ https://jestjs.io/docs/using-matchers
 https://jestjs.io/pt-BR/docs/setup-teardown
 https://jestjs.io/pt-BR/docs/jest-object
 https://jestjs.io/pt-BR/docs/jest-object#mock-functions
-
+https://jestjs.io/pt-BR/docs/api#testeachtablename-fn-timeout
 
 correção do erro: Expected linebreaks to be 'LF' but found 'CRLF'
 
