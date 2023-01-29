@@ -21,12 +21,20 @@ class EditorasController {
   };
 
   static cadastrarEditora = async (req, res) => {
+    const mensagem = 'corpo da requisição vazio';
+
     const { body } = req;
     const editora = new Editora(body);
     try {
+      if (Object.keys(body).length === 0) {
+        throw new Error(mensagem);
+      }
       const resposta = await editora.salvar(editora);
       return res.status(201).json({ message: 'editora criada', content: resposta });
     } catch (err) {
+      if (err.message == mensagem) {
+        return res.status(400).json(err.message)
+      }
       return res.status(500).json(err.message);
     }
   };
