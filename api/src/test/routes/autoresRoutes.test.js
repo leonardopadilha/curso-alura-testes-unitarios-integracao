@@ -27,3 +27,20 @@ describe('GET em /autores', () => {
         expect(resposta.body[0].nome).toEqual('JRR Tolkien');
     });
 });
+
+let idAutor;
+describe('POST em /autores', () => {
+    it('Deve adicionar novo autor', async () => {
+        const resposta = await endpoint
+            .post('/autores')
+            .send({
+                nome:'Eduardo Felipe',
+                nacionalidade: 'Brasileira'
+            })
+            .expect(201);
+        
+        idAutor = resposta.body.content.id;
+
+        console.log(idAutor);
+    });
+});
