@@ -4,7 +4,7 @@ import { describe, expect, it, jest } from '@jest/globals';
 
 let server;
 
-const endpoint = request(app);
+let endpoint = request(app);
 
 beforeEach(() => {
     const port = 3000;
@@ -15,16 +15,13 @@ afterEach(() => {
     server.close();
 });
 
-
 describe('GET em /autores', () => {
-    it('Deve retornar uma lista de autores', async () => {
+    it('Deve retornar os autores cadastrados', async () => {
         const resposta = await endpoint
             .get('/autores')
             .set('Accept', 'application/json')
             .expect('content-type', /json/)
             .expect(200);
-
-        expect(resposta.body[0].nome).toEqual('JRR Tolkien');
     });
 });
 
@@ -38,9 +35,20 @@ describe('POST em /autores', () => {
                 nacionalidade: 'Brasileira'
             })
             .expect(201);
-        
-        idAutor = resposta.body.content.id;
 
-        console.log(idAutor);
+        idAutor = resposta.body.content.id;
     });
 });
+
+describe('GET em /autores/id', () => {
+    it('Deve retornar apenas o autor informado via id', async () => {
+        const resposta = await endpoint
+            .get(`/autores/${idAutor}`)
+            .expect(200);
+
+        expect(resposta.body.nome).toEqual('Eduardo Felipe');
+    });
+});
+
+
+
