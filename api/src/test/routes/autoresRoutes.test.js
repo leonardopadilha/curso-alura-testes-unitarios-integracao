@@ -50,5 +50,26 @@ describe('GET em /autores/id', () => {
     });
 });
 
+describe('PUT em /autores/id', () => {
+    it('Deve alterar o campo nome', async () => {
+        const resposta = await endpoint
+            .put(`/autores/${idAutor}`)
+            .send({nome:'José Eduardo Felipe'})
+            .expect(204);
+    });
+});
+
+describe('GET para validar alteração de nome', () => {
+    it('Deve validar que o nome foi alterado com sucesso', async () => {
+        const resposta = await endpoint
+            .get(`/autores/${idAutor}`)
+            .expect(200);
+
+        expect(resposta.body.nome).toEqual('José Eduardo Felipe');
+    });
+});
+
+
+
 
 
