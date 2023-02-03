@@ -69,6 +69,27 @@ describe('GET para validar alteração de nome', () => {
     });
 });
 
+it.each([
+    ['nome ', {nome : 'Carlos Eduardo Felipe'}],
+    ['nacionalidade ', {nacionalidade: 'Italiano'}],
+
+]) ('Deve alterar em autor os campos %s', async(chave, params) => {
+    const resposta = await endpoint
+        .put(`/autores/${idAutor}`)
+        .send(params)
+        .expect(204);
+});
+
+describe('GET para validar alterações em propriedades', () => {
+    it('Deve confirmar alteracao em mais de uma propriedade', async() => {
+        const resposta = await endpoint
+            .get(`/autores/${idAutor}`)
+            .expect(200);
+        
+        expect(resposta.body.nome).toEqual('Carlos Eduardo Felipe');
+        expect(resposta.body.nacionalidade).toEqual('Italiano');
+    });
+});
 
 
 
