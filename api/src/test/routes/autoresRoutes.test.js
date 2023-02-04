@@ -1,6 +1,6 @@
 import app from '../../app.js';
 import request from "supertest";
-import { describe, expect, it, jest } from '@jest/globals';
+import { describe, expect, it } from '@jest/globals';
 
 let server;
 
