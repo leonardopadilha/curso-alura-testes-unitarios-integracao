@@ -17,8 +17,40 @@ afterEach(() => {
 
 describe('GET em /livros', () => {
     it('Deve retornar todos os livros cadastrados', async() => {
-        const resposta = endpoint
+        const resposta = await endpoint
             .get('/livros')
+            .set('Accept', 'application/json')
+            .expect('content-type', /json/)
             .expect(200);
+    });
+});
+
+let idLivros;
+describe('POST em /livros', () => {
+    it('Deve cadastrar livro com suceso', async() => {
+        let resposta = await endpoint
+            .post('/livros')
+            .send({
+                titulo: "A Natureza da Terra-Média",
+                paginas: 512,
+                editora_id: 1,
+                autor_id: 1
+            })
+            .expect(201);
+
+        expect(resposta.body.message).toEqual('livro criado')
+
+        idLivros = resposta.body.content.id;
+    });
+});
+
+describe('GET em /livros/id', () => {
+    it('Deve retornar o livro solicitado via id', async() => {
+        const resposta = await endpoint
+            .get(`/livros/${idLivros}`)
+            .expect(200);
+
+        expect(resposta.body.id).toEqual(idLivros)
+        expect(resposta.body.titulo).toEqual("A Natureza da Terra-Média");
     });
 });
