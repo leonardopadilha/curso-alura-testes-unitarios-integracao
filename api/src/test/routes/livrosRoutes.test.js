@@ -63,3 +63,27 @@ describe('PUT em /livros', () => {
             .expect(204);
     });
 });
+
+it.each([
+    ['paginas', {paginas : 2400}],
+    ['editora_id', {editora_id: 2}],
+    ['autor_id', {autor_id: 3}]
+]) ('Deve alterar os livros em %s', async(chave, params) => {
+    const resposta = await endpoint
+        .put(`/livros/${idLivros}`)
+        .send(params)
+        .expect(204);
+});
+
+describe('GET em /livros', () => {
+    it('Deve validar a alteração realizada no passo anterior', async() => {
+        const resposta = await endpoint
+            .get(`/livros/${idLivros}`)
+            .expect(200);
+        
+        expect(resposta.body.titulo).toEqual("O Silmarillion");
+        expect(resposta.body.paginas).toEqual(2400);
+        expect(resposta.body.editora_id).toEqual(2);
+        expect(resposta.body.autor_id).toEqual(3);
+    });
+});
