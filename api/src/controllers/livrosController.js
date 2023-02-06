@@ -38,7 +38,7 @@ class LivrosController {
       const livroAtual = await Livro.pegarPeloId(params.id);
       const novoLivro = new Livro({ ...livroAtual, ...body });
       const resposta = await novoLivro.salvar(novoLivro);
-      return res.status(200).json({ message: 'livro atualizado', content: resposta });
+      return res.status(204).json({ message: 'livro atualizado', content: resposta });
     } catch (err) {
       return res.status(500).json(err.message);
     }

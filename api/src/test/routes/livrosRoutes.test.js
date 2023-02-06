@@ -54,3 +54,12 @@ describe('GET em /livros/id', () => {
         expect(resposta.body.titulo).toEqual("A Natureza da Terra-Média");
     });
 });
+
+describe('PUT em /livros', () => {
+    it('Deve alterar o título do livro', async() => {
+        const resposta = await endpoint
+            .put(`/livros/${idLivros}`)
+            .send({titulo: 'O Silmarillion'})
+            .expect(204);
+    });
+});
