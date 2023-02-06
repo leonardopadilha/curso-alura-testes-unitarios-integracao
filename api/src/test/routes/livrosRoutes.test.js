@@ -87,3 +87,13 @@ describe('GET em /livros', () => {
         expect(resposta.body.autor_id).toEqual(3);
     });
 });
+
+describe('DELETE em /livros', () => {
+    it('Deve excluir o livro informado através do id', async() => {
+        const resposta = await endpoint
+            .delete(`/livros/${idLivros}`)
+            .expect(200);
+        
+        expect(resposta.body.message).toEqual('livro excluído');
+    });
+});
